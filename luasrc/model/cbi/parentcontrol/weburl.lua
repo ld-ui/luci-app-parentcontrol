@@ -1,4 +1,4 @@
- local o = require "luci.sys"
+local o = require "luci.sys"
 local fs = require "nixio.fs"
 local ipc = require "luci.ip"
 local net = require "luci.model.network".init()
@@ -41,9 +41,6 @@ e = t:option(Flag, "enable", translate("开启"))
 e.rmempty = false
 e.default = '1'
 
-e = t:option(Value, "mac", translate("MAC地址<font color=\"green\">(必指定客户端)</font>"))
-e.rmempty = true
-o.net.mac_hints(function(t, a) e:value(t, "%s (%s)" % {t, a}) end)
 
 e = t:option( Value, "word", translate("关键词/URL<font color=\"green\">(可留空)</font>"))
 e.rmempty = true
